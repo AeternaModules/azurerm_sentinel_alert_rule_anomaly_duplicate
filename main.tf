@@ -8,7 +8,7 @@ resource "azurerm_sentinel_alert_rule_anomaly_duplicate" "sentinel_alert_rule_an
   mode                       = each.value.mode
 
   dynamic "multi_select_observation" {
-    for_each = each.value.multi_select_observation != null ? [each.value.multi_select_observation] : []
+    for_each = each.value.multi_select_observation != null ? each.value.multi_select_observation : []
     content {
       name   = multi_select_observation.value.name
       values = multi_select_observation.value.values
@@ -16,7 +16,7 @@ resource "azurerm_sentinel_alert_rule_anomaly_duplicate" "sentinel_alert_rule_an
   }
 
   dynamic "prioritized_exclude_observation" {
-    for_each = each.value.prioritized_exclude_observation != null ? [each.value.prioritized_exclude_observation] : []
+    for_each = each.value.prioritized_exclude_observation != null ? each.value.prioritized_exclude_observation : []
     content {
       exclude    = prioritized_exclude_observation.value.exclude
       name       = prioritized_exclude_observation.value.name
@@ -25,7 +25,7 @@ resource "azurerm_sentinel_alert_rule_anomaly_duplicate" "sentinel_alert_rule_an
   }
 
   dynamic "single_select_observation" {
-    for_each = each.value.single_select_observation != null ? [each.value.single_select_observation] : []
+    for_each = each.value.single_select_observation != null ? each.value.single_select_observation : []
     content {
       name  = single_select_observation.value.name
       value = single_select_observation.value.value
@@ -33,7 +33,7 @@ resource "azurerm_sentinel_alert_rule_anomaly_duplicate" "sentinel_alert_rule_an
   }
 
   dynamic "threshold_observation" {
-    for_each = each.value.threshold_observation != null ? [each.value.threshold_observation] : []
+    for_each = each.value.threshold_observation != null ? each.value.threshold_observation : []
     content {
       name  = threshold_observation.value.name
       value = threshold_observation.value.value

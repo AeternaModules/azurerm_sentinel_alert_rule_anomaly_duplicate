@@ -29,23 +29,23 @@ EOT
     enabled                    = bool
     log_analytics_workspace_id = string
     mode                       = string
-    multi_select_observation = optional(object({
+    multi_select_observation = optional(list(object({
       name   = string
       values = list(string)
-    }))
-    prioritized_exclude_observation = optional(object({
+    })))
+    prioritized_exclude_observation = optional(list(object({
       exclude    = optional(string)
       name       = string
       prioritize = optional(string)
-    }))
-    single_select_observation = optional(object({
+    })))
+    single_select_observation = optional(list(object({
       name  = string
       value = string
-    }))
-    threshold_observation = optional(object({
+    })))
+    threshold_observation = optional(list(object({
       name  = string
       value = string
-    }))
+    })))
   }))
 }
 
